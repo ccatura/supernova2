@@ -1,0 +1,291 @@
+<html>
+<head>
+<title>SuperNovaEX</title>
+
+	<!--bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<!-- LESS
+	<link rel="stylesheet/less" type="text/css" href="styles.less" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+	-->
+
+	<!-- My stylesheet -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+<script>
+	//Displays a border on the image when check box is clicked
+    $(document).ready(function(){
+        $('#borderImage').click(function(){
+            if($(this).is(":checked")){
+                $(".mainImage").css("border", "1px solid gray");
+            }
+            else if($(this).is(":not(:checked)")){
+                $(".mainImage").css("border", "0px solid gray");
+            }
+        });
+    });
+	
+	//Changes size of image per radio button clicked
+	$(document).ready(function(){
+        $('input[type=radio][name=imageRatio]').change(function() {
+            var radioValue = $("input[name='imageRatio']:checked").val();
+                $('.mainImage').width(radioValue);
+        });
+    });
+	
+	//Displays a background color if the option is checked
+	//Uses the preset color selected from the dropdown list
+	$(document).ready(function(){
+        $('#backgroundImage').click (function(){
+            if($(this).is(":checked")){
+                $(".wholePageContainer").css("background-color", $("#backgroundColor").val());
+            }
+            else if($(this).is(":not(:checked)")){
+                $(".wholePageContainer").css("background-color", "white");
+            }
+        });
+    });
+	
+	//If background color is already on, this eneables the color to change again based on a selection dropdown list change
+	$(document).ready(function(){
+		$('#backgroundColor').click(function(event){
+			var keycode = (event.keyCode ? event.keyCode : event.which);
+			if(($("#backgroundColor").val() != '') && ($('#backgroundImage').is(":checked"))){
+				$(".wholePageContainer").css("background-color", $("#backgroundColor").val());
+			}
+		});
+	});
+	
+	//When enter is pressed in colort ext field, sets the background color to whatever was typed in
+	/*$(document).ready(function(){
+		$('#backgroundColor').keypress(function(event){
+			var keycode = (event.keyCode ? event.keyCode : event.which);
+			if((keycode == '13') && ($('#backgroundImage').is(":checked"))){
+				$(".wholePageContainer").css("background-color", $("#backgroundColor").val());
+			}
+		});
+	});*/
+	
+	//Changes the class for the image(s) selected on bottom, to display a border to signify selection
+	$(document).ready(function() {
+		$(".thumb").click(function() {
+			if(this.className == "thumb") {
+				$(this).addClass("thumbSelected");
+				$(this).removeClass("thumb");
+			} else {
+				$(this).addClass("thumb");
+				$(this).removeClass("thumbSelected");
+			}
+    });
+});
+</script>
+
+
+</head>
+<body>
+
+
+<div class="wholePageContainer">
+	<div class="titleBar">
+	<span class="glyphicon glyphicon-file"></span> SuperNova EX
+		<!--<div class="appButtons">
+			<span class="glyphicon glyphicon-minus" title="Minimize"></span>
+			<span class="glyphicon glyphicon-plus" title="Maximize"></span>
+		</div>-->
+	</div>
+
+		<div class="leftContainer">
+			<h4>PRODUCT ENTRY</h4>
+			<input type="text" class="enterText" placeholder="Enter SKU" size="20">
+			<input type="submit" class="btn btn-primary" value="Lookup">
+			<br><br>
+			<h4>PRODUCT INFORMATION</h4>
+			<b>SKU: ABC123-7</b>
+			<br>
+			Tanzanite min. 1.25ct mm varies oval. 8x6 oval ring accent stones.
+			<br><br>
+			<div style="text-align: right; font-weight: bold;">Cost: $700</div>
+			<img src="test.jpg" style="border: 1px solid gray; width: 100%;">
+			<br>
+			<div style="text-align: center;">Primary Image</div>
+			<br>
+			<h4>IMAGE APPROVAL</h4>
+			<input type="button" class="btn btn-success" value="Approve All" style="width: 49%;">
+			<input type="button" class="btn btn-danger" value="Reject" style="width: 49%;" data-toggle="modal" data-target="#rejectModal">
+			<br><br>
+			<input type="button" class="btn btn-secondary" value="Save Image" style="width: 49%;">
+			<input type="button" class="btn btn-secondary" value="Delete" style="width: 49%;">
+			<br><br>
+			<input type="button" class="btn btn-secondary" value="Commit" style="width: 100%;">
+			<br><br>
+			<h4>OPTIONS</h4>
+				<input type="radio" class="checkRadio" name="imageRatio" value="" checked>Auto | 
+				<input type="radio" class="checkRadio" name="imageRatio" value="800">800x600 | 
+				<input type="radio" class="checkRadio" name="imageRatio" value="1600">1600x1200 (1:1)
+				<br><br>
+			<input type="checkbox" class="checkRadio" id="borderImage"> Border Around Image
+			<br>
+			<input type="checkbox" class="checkRadio" id="backgroundImage"> Background: 
+			<!--<input type="text" placeholder="Enter color or HEX" value="LightGray" id="backgroundColor" title="Enter color or HEX">-->
+				<select class="colors" id="backgroundColor">
+					<option>Gray</option>
+					<option>WhiteSmoke</option>
+					<option>LightGray</option>
+					<option>DarkGray</option>
+					<option>Black</option>
+					<option>SteelBlue</option>
+					<option>Yellow</option>
+					<option>Red</option>
+					<option>Green</option>
+				</select>
+			<br>
+			<!--<div style="font-size: 10px; font-style: italic; text-align: center;">Example: Blue, #00FF00, rgb(0,255,0)</div>-->
+			<br><br><br>
+			
+			
+		</div>
+		<div class="rightContainer">
+			<img src="test.jpg" class="mainImage">
+		</div>
+	
+	
+	
+<div class="bottomContainer">
+<table>
+<tr>
+<td>
+	<div class="thumbContainer">
+		<img class="thumb" src="test.jpg">
+		<div class="infoApproved">DATABASE
+		</div>
+		<!--<input type="button" class="imagesButton" value="A" data-toggle="modal" data-target="#propertiesModal" style="background-color: #44ee44;">
+		<input type="button" class="imagesButton" value="R" data-toggle="modal" data-target="#propertiesModal" style="background-color: #ff5555;">-->
+		<select class="imageNumbers">
+			<option> </option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+			<option>10</option>
+			<option>11</option>
+			<option>12</option>
+			<option>13</option>
+			<option>14</option>
+			<option>15</option>
+			<option>16</option>
+			<option>17</option>
+			<option>18</option>
+			<option>19</option>
+			<option>20</option>
+		</select>
+		<input type="button" class="imagesButton" value="P" data-toggle="modal" data-target="#propertiesModal">
+		<input type="button" class="imagesButton" value="S" data-toggle="modal" data-target="#propertiesModal">
+		<input type="button" class="imagesButton" value="X" data-toggle="modal" data-target="#propertiesModal">
+
+	</div>
+</td>
+<td>
+	<div class="thumbContainer">
+		<img class="thumb" src="ring.jpg">
+		<div class="infoApproved">DATABASE
+		</div>
+		<!--<input type="button" class="imagesButton" value="A" data-toggle="modal" data-target="#propertiesModal" style="background-color: #44ee44;">
+		<input type="button" class="imagesButton" value="R" data-toggle="modal" data-target="#propertiesModal" style="background-color: #ff5555;">-->
+		<select class="imageNumbers">
+			<option> </option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+			<option>10</option>
+			<option>11</option>
+			<option>12</option>
+			<option>13</option>
+			<option>14</option>
+			<option>15</option>
+			<option>16</option>
+			<option>17</option>
+			<option>18</option>
+			<option>19</option>
+			<option>20</option>
+		</select>
+		<input type="button" class="imagesButton" value="P" data-toggle="modal" data-target="#propertiesModal">
+		<input type="button" class="imagesButton" value="S" data-toggle="modal" data-target="#propertiesModal">
+		<input type="button" class="imagesButton" value="X" data-toggle="modal" data-target="#propertiesModal">
+
+	</div>
+</td>
+
+
+
+
+
+</tr>
+</table>
+</div>
+</div>
+
+
+
+<!-- Reject modal -->
+<div id="rejectModal" class="modal fade" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">Reject Image</h4>
+      </div>
+      <div class="modal-body">
+        <p><input type="text" placeholder="Reject Reason" size="75%"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">REJECT</button>
+        <button type="button" class="btn btn-default btn-success" data-dismiss="modal">CANCEL</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- properties modal -->
+<div id="propertiesModal" class="modal fade" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">Image Properties</h4>
+      </div>
+      <div class="modal-body">
+        <p>SUBMITTED: 2020-03-16 | chacat1<br>
+		   APPROVED:  2020-03-16 | kencol1</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

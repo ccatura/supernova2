@@ -1,0 +1,161 @@
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 13px;
+	line-height: 100%;
+}
+
+h4 {
+	background: #555555;
+	color: #ffffff;
+	padding: 3px;
+	font-size: 14px;
+}
+.wholePageContainer {
+	--mainWidth: calc(100% - 7px);
+	--mainHeight: calc(100% - 38px);
+	--functionWidth: 275px;
+	--pageMargin: 10px;
+	--bottomContainerHeight: 230px;
+	--appAreaHeight: calc(var(--mainHeight) - var(--bottomContainerHeight) + 20px);
+
+	border: 4px solid black;
+	height: var(--mainHeight);
+	min-height: 1056px;
+	width: calc(var(--mainWidth) - var(--pageMargin));
+	background-color: white;
+	border: 4px solid #888888;
+	border-radius: 5px;
+	margin: var(--pageMargin);
+}
+
+.titleBar {
+	background-color: #aaaaff;
+	padding: 4px;
+	font-weight: bold;
+	border-bottom: 2px solid #888888;
+}
+
+.appButtons {
+	float: right;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	max-width: 1600px;
+	max-height: 1200px;
+}
+
+.mainImage {
+	max-width: 1600px;
+	max-height: 1200px;
+	min-width: 800px;
+	min-height: 600px;
+ 
+}
+
+.rightContainer {
+	padding: 20px;
+	width: calc(var(--mainWidth) - var(--functionWidth));
+	height: var(--appAreaHeight);
+	float: left;
+	overflow-y: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.leftContainer {
+	background-color: #cccccc;
+	padding: 10px;
+	border-right: 4px solid #888888;
+	width: 	var(--functionWidth);
+	height: var(--appAreaHeight);
+	min-height: 800px;
+	float: left;
+	white-space: normal;
+}
+
+.bottomContainer {
+	background-color: #eeeeee;
+	padding: 0px;
+	border-top: 4px solid #888888;
+	overflow-x: auto; /*scrolls images on bottom*/
+	overflow-y: hidden;
+	
+	clear: both;
+	height: calc(var(--bottomContainerHeight) - 10px);
+}
+
+.thumb {
+	height: 125px;
+	border: 3px solid lightgray;
+	margin: 0px;
+}
+
+.thumbSelected {
+	height: 125px;
+	border: 3px solid #6688ff;
+	margin: 0px;
+}
+
+.thumbContainer {
+	float: left;
+	height: 170px;
+	width: 165px;
+	//margin: 0px 5px 0px 0px;
+	margin: 5px;
+}
+
+table, tr, td {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+.imagesButton {
+	height: 25px;
+	width: 19px;
+	padding: 0px;
+	border: 1px solid lightgray;
+	margin: 0px;
+	//position: relative;
+	//left: 0px;
+	//top: 25px;
+	//margin-top: -25px;
+}
+
+.imageNumbers {
+	height: 25px;
+	width: 90;
+}
+
+.btn-primary, .enterText {
+	height: 25px;
+	padding: 0px 10px 0px 10px;
+	margin: 0px;
+}
+
+.infoApproved {
+	text-align: center;
+	color: white;
+	background-color: #007700;
+	margin: 0px;
+	padding: 0px;
+	border: 2px solid lightgray;
+	border-top: 0px;
+}
+
+.infoNotApproved {
+	text-align: center;
+	color: black;
+	background-color: #ffffff;
+	margin: 0px;
+	padding: 0px;
+	border: 2px solid lightgray;
+	border-top: 0px;
+}
+
+.checkRadio {
+	height: 17px;
+	width: 17px;
+	vertical-align: bottom;
+}
