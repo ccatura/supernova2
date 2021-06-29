@@ -21,10 +21,10 @@
     $(document).ready(function(){
         $('#borderImage').click(function(){
             if($(this).is(":checked")){
-                $(".mainImage").css("border", "1px solid gray");
+                $(".mainImage").css("outline", "1px solid gray");
             }
             else if($(this).is(":not(:checked)")){
-                $(".mainImage").css("border", "0px solid gray");
+                $(".mainImage").css("outline", "0px solid gray");
             }
         });
     });

@@ -51,7 +51,6 @@ img {
 	max-height: 1200px;
 	min-width: 800px;
 	min-height: 600px;
- 
 }
 
 .rightContainer {
@@ -102,7 +101,6 @@ img {
 	float: left;
 	height: 170px;
 	width: 165px;
-	//margin: 0px 5px 0px 0px;
 	margin: 5px;
 }
 
@@ -117,10 +115,6 @@ table, tr, td {
 	padding: 0px;
 	border: 1px solid lightgray;
 	margin: 0px;
-	//position: relative;
-	//left: 0px;
-	//top: 25px;
-	//margin-top: -25px;
 }
 
 .imageNumbers {
